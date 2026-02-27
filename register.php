@@ -9,7 +9,7 @@ function validate_user($name, $email, $password) {
         return "Invalid email format";
     }
 
-    if (strlen($password) < 8) {
+    if (strlen($password) < 12) {
         return "Password must be at least 6 characters";
     }
 
