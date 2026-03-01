@@ -9,14 +9,14 @@ function validate_user($name, $email, $password) {
         return "Invalid email format";
     }
 
-    if (strlen($password) < 12) {
+    if (strlen($password) < 6) {
         return "Password must be at least 6 characters";
     }
 
     return "Success";
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (php_sapi_name() !== 'cli' && $_SERVER["REQUEST_METHOD"] == "POST") {
     $result = validate_user($_POST["name"], $_POST["email"], $_POST["password"]);
     echo $result;
 }
